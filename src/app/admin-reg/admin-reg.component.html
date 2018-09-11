@@ -1,0 +1,82 @@
+<div class="card">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Admin Registration</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="First Name" [(ngModel)]="firstname" name="firstname" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Last Name" [(ngModel)]="lastname" name="lastname" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+        </mat-form-field>
+
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Password" 
+                [(ngModel)]="password" name="password" type="password" minlength="8" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Repeat Password" 
+                [(ngModel)]="repeatpassword" name="repeatpassword" type="password" minlength="8"
+                  required>
+              </mat-form-field>
+            </td>
+          </tr>
+            
+        </table>
+        <span>Use 8 or more characters with a mix of letters, numbers & symbols</span>
+
+      </form>
+    </mat-card-content>
+
+
+    <div class="social-login">
+      <p>Or Sign Up With</p>
+      <mat-icon>
+        <i class="material-icons">
+          duo
+        </i>
+      </mat-icon>
+      <mat-icon>
+        <i class="material-icons">
+          speaker_phone
+        </i></mat-icon>
+      <mat-icon>
+        <i class="material-icons">
+          chat
+        </i>
+      </mat-icon>
+
+
+    </div>
+
+    <mat-card-actions align="end">
+
+      <button mat-raised-button (click)="login()" color="primary">Next Step</button>
+
+    </mat-card-actions>
+
+  </mat-card>
+</div>

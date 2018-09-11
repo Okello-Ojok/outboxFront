@@ -1,0 +1,22 @@
+.login-card {
+    max-width: 400px;
+    height: 300px;
+    margin: 6rem auto;
+  }
+  
+  /* table {
+    width: 100%;
+  } */
+.full-width {
+    width: 100%;
+}
+.mat-card-title{
+    text-align: center;
+}
+.social-login{
+    text-align: center;
+}
+.material-icons {
+    font-size: 40px;
+    margin-right: 1em;
+}

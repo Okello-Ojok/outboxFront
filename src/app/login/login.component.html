@@ -1,0 +1,57 @@
+<div class="card">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Sign In</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="login-form">
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Password" [(ngModel)]="password" name="password" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+
+      <button mat-raised-button (click)="login()" color="primary">Sign In</button>
+
+    </mat-card-actions>
+
+    <a href="#">
+      <h5>Reset Password?</h5>
+    </a>
+  </mat-card>
+</div>
+
+<div class="social-login">
+  <p>Or Login With</p>
+  <mat-icon>
+    <i class="material-icons">
+      duo
+    </i>
+  </mat-icon>
+<mat-icon>
+  <i class="material-icons">
+    speaker_phone
+  </i></mat-icon>
+  <mat-icon>
+    <i class="material-icons">
+      chat
+    </i>
+  </mat-icon>
+  
+</div>
