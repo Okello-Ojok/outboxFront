@@ -1,3 +1,9 @@
-/* .mat-card{
-    margin-left: 200px;
-} */
+.assets-card {
+    width: 80%;
+    height: 400px;
+    margin: 3rem auto;
+  }
+  
+.full-width {
+    width: 100%;
+}

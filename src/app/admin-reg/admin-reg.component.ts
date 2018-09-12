@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminRegComponent implements OnInit {
 
+  show = true;
+  hidden = true;
+
+  idType = [
+    {id: 1, name: "National ID"},
+    {id: 2, name: "Passport"},
+    {id: 3, name: "Work ID"}
+  ]
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showForm(){
+    this.show = !this.show;
   }
 
 }
