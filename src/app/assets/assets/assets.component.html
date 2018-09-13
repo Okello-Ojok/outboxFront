@@ -1,5 +1,115 @@
-<div class="assets">
-  <mat-card class="assets-card">
-    <h1>Outbox Assets</h1>
+<div class="card">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="title">
+        <h1>Assets Recording</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Asset Name" [(ngModel)]="assetname" name="assetname" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Tag Number" [(ngModel)]="tagnumber" name="tagnumber" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Serial Number" [(ngModel)]="serialnumber" name="serialnumber" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Manufacturer/Seller" [(ngModel)]="seller" name="seller" required>
+                  </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Class" [(ngModel)]="assetclass" name="assetclass" required>
+              </mat-form-field>
+            </td>
+
+          </tr>
+
+        </table>
+        
+
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Color" [(ngModel)]="color" name="color" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Description" [(ngModel)]="description" name="description" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Owner" [(ngModel)]="owner" name="description" required>
+                </mat-form-field>
+              </td>
+          </tr>
+        </table>
+        <table class="full-width" cellspacing="0">
+          <tr>
+              <td>
+                  <mat-form-field class="full-width" cellspacing="0">
+                    <input matInput placeholder="Category" [(ngModel)]="category" name="category" required>
+                  </mat-form-field>
+                </td>
+
+            
+          </tr>
+
+        </table>
+
+      </form>
+    </mat-card-content>
+
+
+    <div class="social-login">
+      <p>Or Sign Up With</p>
+      <mat-icon>
+        <i class="material-icons">
+          duo
+        </i>
+      </mat-icon>
+      <mat-icon>
+        <i class="material-icons">
+          speaker_phone
+        </i></mat-icon>
+      <mat-icon>
+        <i class="material-icons">
+          chat
+        </i>
+      </mat-icon>
+
+
+    </div>
+
+    <mat-card-actions align="end">
+
+      <button mat-raised-button (click)="showForm()" color="primary">Next Step</button>
+
+    </mat-card-actions>
+
   </mat-card>
 </div>

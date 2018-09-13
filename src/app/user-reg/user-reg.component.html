@@ -1,3 +1,135 @@
-<p>
-  user-reg works!
-</p>
+<div class="card">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="title">
+        <h1>User Registration</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="First Name" [(ngModel)]="firstname" name="firstname" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Last Name" [(ngModel)]="lastname" name="lastname" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+        </mat-form-field>
+
+
+        <span>Use 8 or more characters with a mix of letters, numbers & symbols</span>
+
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Telephone" [(ngModel)]="telephone" name="telephone" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Alternate Telephone" [(ngModel)]="alttelephone" name="alttelephone"
+                  required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="ID Type" class="full-width" cellspacing="0" required>
+                  <mat-option *ngFor="let idtype of idType" [value]="idtype.id">{{idtype.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width" cellspacing="0">
+                <input matInput placeholder="ID Number" [(ngModel)]="idnumber" name="idnumber" required>
+              </mat-form-field>
+            </td>
+          </tr>
+
+        </table>
+
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-radio-button value="male">Male</mat-radio-button>
+            </td>
+            <td>
+              <mat-radio-button value="female">Female</mat-radio-button>
+            </td>
+          </tr>
+
+        </table>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <label *ngFor="let res of residency">
+              <input type="radio" name="residency" [(ngModel)]="residency" 
+              [value]="res">{{res.type}}</label>
+
+            <!-- <td>
+              <mat-radio-button value="individual">Individual</mat-radio-button>
+            </td>
+            <td>
+              <mat-radio-button *ngIf="residency" value="company">Company</mat-radio-button>
+            </td> -->
+
+          </tr>
+        </table>
+        <div>
+            <label>If company, enter company name.</label>
+            <mat-form-field class="full-width">
+                
+                <input matInput placeholder="Company name" [(ngModel)]="company" name="number" required>
+
+              </mat-form-field>
+
+        </div>
+
+      </form>
+    </mat-card-content>
+
+
+    <div class="social-login">
+      <p>Or Sign Up With</p>
+      <mat-icon>
+        <i class="material-icons">
+          duo
+        </i>
+      </mat-icon>
+      <mat-icon>
+        <i class="material-icons">
+          speaker_phone
+        </i></mat-icon>
+      <mat-icon>
+        <i class="material-icons">
+          chat
+        </i>
+      </mat-icon>
+
+
+    </div>
+
+    <mat-card-actions align="end">
+
+      <button mat-raised-button (click)="showForm()" color="primary">Next Step</button>
+
+    </mat-card-actions>
+
+  </mat-card>
+</div>
