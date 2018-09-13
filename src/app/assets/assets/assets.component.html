@@ -1,5 +1,5 @@
 <div class="card">
-  <mat-card class="login-card">
+  <mat-card class="assets-card">
     <mat-card-header>
       <mat-card-title class="title">
         <h1>Assets Recording</h1>
@@ -28,13 +28,13 @@
             </td>
           </tr>
         </table>
-        
+
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
-                <mat-form-field class="full-width">
-                    <input matInput placeholder="Manufacturer/Seller" [(ngModel)]="seller" name="seller" required>
-                  </mat-form-field>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Manufacturer/Seller" [(ngModel)]="seller" name="seller" required>
+              </mat-form-field>
             </td>
             <td>
               <mat-form-field class="full-width">
@@ -45,7 +45,7 @@
           </tr>
 
         </table>
-        
+
 
         <table class="full-width" cellspacing="0">
           <tr>
@@ -62,54 +62,51 @@
             </td>
 
             <td>
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Owner" [(ngModel)]="owner" name="description" required>
-                </mat-form-field>
-              </td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Owner" [(ngModel)]="owner" name="description" required>
+              </mat-form-field>
+            </td>
           </tr>
         </table>
         <table class="full-width" cellspacing="0">
           <tr>
-              <td>
-                  <mat-form-field class="full-width" cellspacing="0">
-                    <input matInput placeholder="Category" [(ngModel)]="category" name="category" required>
-                  </mat-form-field>
-                </td>
+            <td>
+              <mat-form-field class="full-width" cellspacing="0">
+                <input matInput placeholder="Category" [(ngModel)]="category" name="category" required>
+              </mat-form-field>
+            </td>
 
-            
+            <td>
+              
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Purchase Date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              
+            </td>
+
+            <td>
+                <mat-form-field class="full-width" cellspacing="0">
+                  <input matInput placeholder="Purchase Price" [(ngModel)]="purchaseprice" name="purchaseprice" required>
+                </mat-form-field>
+              </td>
+
+
           </tr>
 
         </table>
+        <button mat-raised-button type="submit" color="primary">Record Asset</button>
 
       </form>
     </mat-card-content>
 
 
-    <div class="social-login">
-      <p>Or Sign Up With</p>
-      <mat-icon>
-        <i class="material-icons">
-          duo
-        </i>
-      </mat-icon>
-      <mat-icon>
-        <i class="material-icons">
-          speaker_phone
-        </i></mat-icon>
-      <mat-icon>
-        <i class="material-icons">
-          chat
-        </i>
-      </mat-icon>
-
-
-    </div>
-
-    <mat-card-actions align="end">
+    <!-- <mat-card-actions align="end">
 
       <button mat-raised-button (click)="showForm()" color="primary">Next Step</button>
 
-    </mat-card-actions>
+    </mat-card-actions> -->
 
   </mat-card>
 </div>
