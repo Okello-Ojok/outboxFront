@@ -28,6 +28,9 @@ import { AssetsComponent } from './assets/assets/assets.component';
 import { LoginComponent } from './login/login.component';
 import { UserRegComponent } from './user-reg/user-reg.component';
 import { AdminRegComponent } from './admin-reg/admin-reg.component';
+import { CreateAssetComponent } from './assets/create-asset/create-asset.component';
+import { PaymentsComponent } from './payments/payments.component';
+import { BrandingComponent } from './assets/branding/branding.component';
 
 
 
@@ -42,7 +45,10 @@ import { AdminRegComponent } from './admin-reg/admin-reg.component';
     AssetsComponent,
     LoginComponent,
     UserRegComponent,
-    AdminRegComponent
+    AdminRegComponent,
+    CreateAssetComponent,
+    PaymentsComponent,
+    BrandingComponent
   ],
   imports: [
     BrowserModule,

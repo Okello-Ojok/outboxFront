@@ -7,6 +7,7 @@ import { UserRegComponent } from './user-reg/user-reg.component';
 
 
 import { AssetsComponent } from './assets/assets/assets.component';
+import { CreateAssetComponent } from './assets/create-asset/create-asset.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'assets',
-    component: AssetsComponent
+    component: CreateAssetComponent
   }
 ];
 
