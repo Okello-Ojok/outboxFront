@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./branding.component.css']
 })
 export class BrandingComponent implements OnInit {
-
+  condition = null;
+  conditions = ['Good', 'Very Good', 'Poor', 'Very Poor'];
   constructor() { }
 
   ngOnInit() {
