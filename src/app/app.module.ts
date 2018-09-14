@@ -31,6 +31,7 @@ import { AdminRegComponent } from './admin-reg/admin-reg.component';
 import { CreateAssetComponent } from './assets/create-asset/create-asset.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { BrandingComponent } from './assets/branding/branding.component';
+import { EventsComponent } from './events/events/events.component';
 
 
 
@@ -48,7 +49,8 @@ import { BrandingComponent } from './assets/branding/branding.component';
     AdminRegComponent,
     CreateAssetComponent,
     PaymentsComponent,
-    BrandingComponent
+    BrandingComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
