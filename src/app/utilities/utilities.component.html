@@ -1,0 +1,54 @@
+<div class="card">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="title">
+        <h1>Utilities Records</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Item Name" [(ngModel)]="itemname" name="itemname" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Unit Price" [(ngModel)]="unitprice" name="unitprice" required>
+              </mat-form-field>
+            </td>
+           
+          </tr>
+        </table>
+        <table class="full-width" cellspacing="0">
+          <tr>
+              <td>
+                  <mat-form-field class="full-width">
+                    <input matInput placeholder="Quantity" [(ngModel)]="quantity" name="quantity" required>
+                  </mat-form-field>
+                </td>
+            <td>
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker1" placeholder="Date of Purchase" required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </td>
+
+
+          </tr>
+        </table>
+
+
+
+
+
+        <button mat-raised-button type="submit" color="primary">Record</button>
+
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>

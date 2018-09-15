@@ -10,6 +10,7 @@ import { AssetsComponent } from './assets/assets/assets.component';
 import { CreateAssetComponent } from './assets/create-asset/create-asset.component';
 import { BrandingComponent } from './assets/branding/branding.component';
 import { EventsComponent } from './events/events/events.component';
+import { UtilitiesComponent } from './utilities/utilities.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'events',
     component: EventsComponent
+  },
+  {
+    path: 'utilities',
+    component: UtilitiesComponent
   }
 ];
 

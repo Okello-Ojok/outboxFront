@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,10 @@ import { MatToolbarModule,
          MatGridListModule, 
          MatInputModule, 
          MatSelectModule, 
-         MatOptionModule, MatRadioModule, MatCheckboxModule, MatDatepickerModule,
+         MatOptionModule, 
+         MatRadioModule, 
+         MatCheckboxModule, 
+         MatDatepickerModule,
          MatNativeDateModule,
          MatCardModule, 
          MatMenuModule, 
@@ -32,6 +36,9 @@ import { CreateAssetComponent } from './assets/create-asset/create-asset.compone
 import { PaymentsComponent } from './payments/payments.component';
 import { BrandingComponent } from './assets/branding/branding.component';
 import { EventsComponent } from './events/events/events.component';
+import { UtilitiesComponent } from './utilities/utilities.component';
+import { ResidentsService } from './residents.service';
+
 
 
 
@@ -50,7 +57,8 @@ import { EventsComponent } from './events/events/events.component';
     CreateAssetComponent,
     PaymentsComponent,
     BrandingComponent,
-    EventsComponent
+    EventsComponent,
+    UtilitiesComponent
   ],
   imports: [
     BrowserModule,
@@ -65,17 +73,21 @@ import { EventsComponent } from './events/events/events.component';
     MatGridListModule, 
     MatInputModule, 
     MatSelectModule, 
-    MatOptionModule, MatRadioModule, MatCheckboxModule, MatDatepickerModule, 
+    MatOptionModule, 
+    MatRadioModule, 
+    MatCheckboxModule, 
+    MatDatepickerModule, 
     MatNativeDateModule,
     MatCardModule,
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [ ResidentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

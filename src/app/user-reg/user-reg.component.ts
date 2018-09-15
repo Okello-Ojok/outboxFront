@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ResidentsService } from '../residents.service';
+import { Resident } from '../residents';
 
 @Component({
   selector: 'app-user-reg',
@@ -18,11 +20,22 @@ export class UserRegComponent implements OnInit {
     {id: 2, type: "Company"}
   ];
 
-  constructor() { }
+  // public residents = [];
+  residents: Resident[];
+
+  constructor(private residentsService: ResidentsService) { }
 
   ngOnInit() {
+    this.residentsService.getResidents()
+        .subscribe(data => {
+          this.residents = data
+          console.log(data)
+        }, err=>{
+          console.log(err)
+        });
+        console.log(this.residents);
+        
   }
 
   
-
 }
