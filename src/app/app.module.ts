@@ -6,26 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OurNavComponent } from './our-nav/our-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, 
-         MatButtonModule, 
-         MatSidenavModule, 
-         MatIconModule, 
-         MatListModule, 
-         MatGridListModule, 
-         MatInputModule, 
-         MatSelectModule, 
-         MatOptionModule, 
-         MatRadioModule, 
-         MatCheckboxModule, 
-         MatDatepickerModule,
-         MatNativeDateModule,
-         MatCardModule, 
-         MatMenuModule, 
-         MatTableModule, 
-         MatPaginatorModule, 
-         MatSortModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatInputModule, MatSelectModule, MatOptionModule, MatRadioModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+
+import { OurNavComponent } from './our-nav/our-nav.component';
 import { MyDashComponent } from './my-dash/my-dash.component';
 import { MyTableComponent } from './my-table/my-table.component';
 import { AssetsComponent } from './assets/assets/assets.component';
@@ -38,6 +22,9 @@ import { BrandingComponent } from './assets/branding/branding.component';
 import { EventsComponent } from './events/events/events.component';
 import { UtilitiesComponent } from './utilities/utilities.component';
 import { ResidentsService } from './residents.service';
+import { EventsService } from './events.service';
+import { ResidentsListComponent } from './residents-list/residents-list.component';
+import { EventRegisterComponent } from './events/event-register/event-register.component';
 
 
 
@@ -58,7 +45,9 @@ import { ResidentsService } from './residents.service';
     PaymentsComponent,
     BrandingComponent,
     EventsComponent,
-    UtilitiesComponent
+    UtilitiesComponent,
+    ResidentsListComponent,
+    EventRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -70,13 +59,13 @@ import { ResidentsService } from './residents.service';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule, 
-    MatInputModule, 
-    MatSelectModule, 
-    MatOptionModule, 
-    MatRadioModule, 
-    MatCheckboxModule, 
-    MatDatepickerModule, 
+    MatGridListModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
     MatMenuModule,
@@ -85,9 +74,9 @@ import { ResidentsService } from './residents.service';
     MatSortModule,
     FormsModule,
     HttpClientModule
-    
+
   ],
-  providers: [ ResidentsService],
+  providers: [ResidentsService, EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

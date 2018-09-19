@@ -15,17 +15,10 @@
     width: 100%;
   }
   
-  [hidden] {
+  /* [hidden] {
     display: none !important;
   }
-  table {
-    width: 100%;
-  }
-  .mat-column-right{
-    text-align: right;
-
-}
-  
+   */
   
   
   /* .material-icons {

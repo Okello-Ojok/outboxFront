@@ -11,6 +11,9 @@ import { CreateAssetComponent } from './assets/create-asset/create-asset.compone
 import { BrandingComponent } from './assets/branding/branding.component';
 import { EventsComponent } from './events/events/events.component';
 import { UtilitiesComponent } from './utilities/utilities.component';
+import { ResidentsListComponent } from './residents-list/residents-list.component';
+import { EventRegisterComponent } from './events/event-register/event-register.component';
+
 
 
 const routes: Routes = [
@@ -51,6 +54,14 @@ const routes: Routes = [
   {
     path: 'utilities',
     component: UtilitiesComponent
+  },
+  {
+    path: 'residents',
+    component: ResidentsListComponent
+  },
+  {
+    path: 'event-register',
+    component: EventRegisterComponent
   }
 ];
 

@@ -1,0 +1,103 @@
+<div class="card">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="title">
+        <h1>Event Registration</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Event Name" [(ngModel)]="eventname" name="eventtname" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput [matDatepicker]="picker1" placeholder="Event Date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </td>
+
+          </tr>
+        </table>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="First Name" [(ngModel)]="firstname" name="firstname" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Last Name" [(ngModel)]="lastname" name="lastname" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Telephone" [(ngModel)]="telephone" name="telephone" required>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Role" name="roles" [(ngModel)]="role">
+                  <mat-option *ngFor="let role of roles" [value]="role">
+                    {{role}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Gender" name="gender" [(ngModel)]="sex">
+                  <mat-option *ngFor="let sex of gender" [value]="sex">
+                    {{sex}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Occupation" name="occupation" [(ngModel)]="occupation">
+                  <mat-option *ngFor="let occupation of occupations" [value]="occupation">
+                    {{occupation}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <button mat-raised-button type="submit" color="primary">Register</button>
+
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>
