@@ -11,7 +11,7 @@ export class EventsComponent implements OnInit {
 
   events: Events[];
 
-  displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname'];
+  displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname', 'lastname', 'email', 'phone', 'actions'];
 
   constructor(private eventsService: EventsService) { }
 

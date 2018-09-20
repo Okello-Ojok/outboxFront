@@ -5,6 +5,9 @@
 .sidenav {
   width: 200px;
 }
+.mat-toolbar{
+  z-index: 9999;
+}
 
 .mat-toolbar.mat-primary {
   position: sticky;

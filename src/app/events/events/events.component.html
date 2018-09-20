@@ -13,33 +13,34 @@
 
       <ng-container matColumnDef="eventDate">
         <th mat-header-cell *matHeaderCellDef>Event Date</th>
-        <td mat-cell *matCellDef="let element"> {{element.eventDate | date}} </td>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.eventDate"> {{element.eventDate | date}} </span> <span *ngIf="!element.eventDate"> N/a </span></td>
       </ng-container>
 
       <ng-container matColumnDef="eventPaid">
         <th mat-header-cell *matHeaderCellDef>Event Paid</th>
-        <td mat-cell *matCellDef="let element"> {{element.eventPaid}} </td>
+        <td mat-cell *matCellDef="let element"><span *ngIf="element.eventPaid">{{element.eventPaid}}</span> <span *ngIf="!element.eventPaid">N/a</span></td>
       </ng-container>
       
       <ng-container matColumnDef="firstname">
         <th mat-header-cell *matHeaderCellDef>First Name</th>
-        <td mat-cell *matCellDef="let element"> {{element.attendee.firstname}} </td>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.firstname}}</span> <span *ngIf="!element.attendee">N/a</span></td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.lastname}}</span> <span *ngIf="!element.attendee">N/a</span></td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.email}}</span> <span *ngIf="!element.attendee">N/a</span></td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Phone</th>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.phone}}</span> <span *ngIf="!element.attendee">N/a</span></td>
       </ng-container>
       
-      <!-- <ng-container matColumnDef="attendee.lastname">
-        <th mat-header-cell *matHeaderCellDef>Last Name</th>
-        <td mat-cell *matCellDef="let element"> </td>
-      </ng-container>
-
-      <ng-container matColumnDef="attendee.company">
-        <th mat-header-cell *matHeaderCellDef>Company</th>
-        <td mat-cell *matCellDef="let element"> {{element.attendee.company}} </td>
-      </ng-container> -->
-
-      <!-- <ng-container matColumnDef="company.name">
-        <th mat-header-cell *matHeaderCellDef>Company</th>
-        <td mat-cell *matCellDef="let element"> {{element.company.name}} </td>
-      </ng-container> -->
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef class="mat-column-right">Actions</th>
