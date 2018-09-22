@@ -1,0 +1,58 @@
+<div class="card">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title class="title">
+        <h1>Create an Event</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Event Name" [(ngModel)]="eventname" name="eventtname" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput [matDatepicker]="picker1" placeholder="Event Date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </td>
+
+          </tr>
+        </table>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-select placeholder="Paid Event?" name="payment" [(ngModel)]="paid">
+                <mat-option *ngFor="let paid of payment" [value]="paid">
+                  {{paid}}
+                </mat-option>
+              </mat-select>
+            </td>
+          </tr>
+          
+        </table>
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="full-width">
+                <input matInput placeholder="Facilitators" [(ngModel)]="facilitators" name="facilitators" required>
+              </mat-form-field>
+            </td>
+          </tr>
+         
+        </table>
+        
+        <button mat-raised-button type="submit" color="primary">Create Event</button>
+
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>

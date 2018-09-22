@@ -1,0 +1,29 @@
+.login-card {
+    max-width: 600px;
+    /* height: 400px; */
+    margin: 3rem auto;
+  }
+  .login-card td{
+      padding: 5px 0;
+  }
+  
+  .mat-card-header{
+      text-align: center;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  /* [hidden] {
+    display: none !important;
+  }
+   */
+  
+  
+  /* .material-icons {
+      font-size: 40px;
+      margin-right: 1em;
+  }
+   */
+  

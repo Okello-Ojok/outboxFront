@@ -25,6 +25,10 @@ import { ResidentsService } from './residents.service';
 import { EventsService } from './events.service';
 import { ResidentsListComponent } from './residents-list/residents-list.component';
 import { EventRegisterComponent } from './events/event-register/event-register.component';
+import { CreateEventComponent } from './events/create-event/create-event.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
+//import { EventsListComponent } from './events/events-list/events-list.component';
 
 
 
@@ -47,7 +51,10 @@ import { EventRegisterComponent } from './events/event-register/event-register.c
     EventsComponent,
     UtilitiesComponent,
     ResidentsListComponent,
-    EventRegisterComponent
+    EventRegisterComponent,
+    CreateEventComponent,
+    PageNotFoundComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,12 @@ import { EventsComponent } from './events/events/events.component';
 import { UtilitiesComponent } from './utilities/utilities.component';
 import { ResidentsListComponent } from './residents-list/residents-list.component';
 import { EventRegisterComponent } from './events/event-register/event-register.component';
+import { CreateEventComponent } from './events/create-event/create-event.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+//import { EventsListComponent } from './events/events-list/events-list.component';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
+
+
 
 
 
@@ -49,7 +55,13 @@ const routes: Routes = [
   },
   {
     path: 'events',
-    component: EventsComponent
+    component: EventsComponent,
+    children: [
+      {
+        path: 'event/:id',
+        component: EventDetailComponent
+      }
+    ]
   },
   {
     path: 'utilities',
@@ -62,6 +74,14 @@ const routes: Routes = [
   {
     path: 'event-register',
     component: EventRegisterComponent
+  },
+  {
+    path: 'create-event',
+    component: CreateEventComponent
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
