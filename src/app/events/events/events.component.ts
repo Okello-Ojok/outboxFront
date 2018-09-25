@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Events } from '../../events';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
+
+// import { Events } from '../../events';
+import { Attendee } from '../../events.model';
+
 import { EventsService } from '../../events.service';
 
 @Component({
@@ -9,24 +15,40 @@ import { EventsService } from '../../events.service';
 })
 export class EventsComponent implements OnInit {
 
-  events: Events[];
+  //events: Events[];
+  attendees: Attendee[]
+  isLoading = false;
+  private attendeeSub: Subscription;
 
-  displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname', 'lastname', 'email', 'phone', 'actions'];
+  // displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname', 'lastname', 'email', 'phone', 'actions'];
 
-  constructor(private eventsService: EventsService) { }
+  displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'facilitators', 'actions'];
+
+
+  constructor(private eventsService: EventsService, private router: Router) { }
 
   ngOnInit() {
 
-    this.eventsService.getEvents()
+    this.eventsService.getAttendees()
       .subscribe(data => {
-        this.events = data
+        this.attendees = data
         console.log(data);
         
       }, err => {
         console.log(err);
         
       });
-      console.log(this.events);
+      console.log(this.attendees);
   }
+
+//   gotoEventDetails(url, id) {
+//     this.router.navigate([url, id]).then( (e) => {
+//       if (e) {
+//         console.log("Navigation is successful!");
+//       } else {
+//         console.log("Navigation has failed!");
+//       }
+//     });
+// }
 
 }

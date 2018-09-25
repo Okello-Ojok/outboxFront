@@ -6,21 +6,32 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+      <form (submit)="onAddEvent(eventForm)" #eventForm="ngForm">
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input matInput placeholder="Event Name" [(ngModel)]="eventname" name="eventtname" required>
+                <input 
+                  matInput 
+                  placeholder="Event Name" 
+                  [(ngModel)]="eventname" 
+                  name="eventname" 
+                  required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="picker1" placeholder="Event Date" required>
-                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                <mat-datepicker #picker1></mat-datepicker>
+                <input 
+                  matInput 
+                  [matDatepicker]="picker" 
+                  placeholder="Event Date" 
+                  [(ngModel)]="eventDate"
+                  name="eventDate"
+                  required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
             </td>
 
@@ -29,7 +40,10 @@
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-select placeholder="Paid Event?" name="payment" [(ngModel)]="paid">
+              <mat-select 
+                placeholder="Paid Event?" 
+                name="payment" 
+                [(ngModel)]="paid">
                 <mat-option *ngFor="let paid of payment" [value]="paid">
                   {{paid}}
                 </mat-option>
@@ -42,7 +56,12 @@
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input matInput placeholder="Facilitators" [(ngModel)]="facilitators" name="facilitators" required>
+                <input 
+                  matInput 
+                  placeholder="Facilitators" 
+                  [(ngModel)]="facilitators" 
+                  name="facilitators" 
+                  required>
               </mat-form-field>
             </td>
           </tr>

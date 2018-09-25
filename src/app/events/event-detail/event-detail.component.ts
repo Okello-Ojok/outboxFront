@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { switchMap } from 'rxjs/operators';
+//import { Events } from '../../events';
+import { EventsService } from '../../events.service';
+
+
 
 @Component({
   selector: 'app-event-detail',
@@ -7,9 +15,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventDetailComponent implements OnInit {
 
-  constructor() { }
+  //event$: Observable<Events[]>  
+  event$: Object;
+
+
+  constructor(private router: Router, private route: ActivatedRoute, 
+              private eventsService: EventsService) { }
 
   ngOnInit() {
+    
   }
+
 
 }
