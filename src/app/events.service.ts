@@ -14,6 +14,8 @@ import { Attendee } from './events.model';
 })
 export class EventsService {
 
+  
+
   //events: Events[]
   private attendees: Attendee[];
   private events: Event[];
@@ -40,7 +42,7 @@ export class EventsService {
     };
     this.http
       .post<{ message: string; eventId: string }>(
-        "http://localhost:3000/eventreg/create-event/",event)
+        "http://localhost:3000/eventreg/create-event/", event)
       .subscribe(responseData => {
         const id = responseData.eventId;
         event.id = id;

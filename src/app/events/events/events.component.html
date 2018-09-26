@@ -1,7 +1,8 @@
 <div>
   <br>
   <mat-card>
-    <button mat-raised-button color="primary">Create An Event</button>
+    
+    <button mat-raised-button color="primary" [routerLink]="[ '/create-event' ]">Create An Event</button>
     <br><br>
     <mat-divider></mat-divider>
     <br>
@@ -25,21 +26,6 @@
         <th mat-header-cell *matHeaderCellDef>Facilitators</th>
         <td mat-cell *matCellDef="let element"> <span *ngIf="element.facilitators">{{element.facilitators}}</span> <span *ngIf="!element.facilitators">N/a</span></td>
       </ng-container>
-
-     <!-- <ng-container matColumnDef="lastname">
-        <th mat-header-cell *matHeaderCellDef>Last Name</th>
-        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.lastname}}</span> <span *ngIf="!element.attendee">N/a</span></td>
-      </ng-container>
-
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef>Email</th>
-        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.email}}</span> <span *ngIf="!element.attendee">N/a</span></td>
-      </ng-container>
-
-      <ng-container matColumnDef="phone">
-        <th mat-header-cell *matHeaderCellDef>Phone</th>
-        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.phone}}</span> <span *ngIf="!element.attendee">N/a</span></td>
-      </ng-container> -->
       
 
       <ng-container matColumnDef="actions">
@@ -65,10 +51,8 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       
-        <!-- <a [routerLink]="[ '/event/:id', event$.id ]">  -->
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
-      (click)="gotoEventDetails('/event',attendees._id)"></tr>
-        <!-- </a> -->
+        
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
       
     </table>
   </mat-card>
