@@ -1,39 +1,13 @@
 
 
-<div *ngIf="event$ | async as event">
-  
-  <div>
-    <label>Id: </label>{{ attendee.firstname }}</div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="attendee.firstname" placeholder="name"/>
-  </div>
-  <p>
-    <button (click)="goToEvents(event)">Back</button>
-  </p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-
 <div>
   <br>
   <mat-card>
-    <button mat-raised-button color="primary">Back to Events</button>
+    <button mat-raised-button color="primary" [routerLink]="[ '/events' ]">Back to Events</button>
     <br><br>
     <mat-divider></mat-divider>
     <br>
-    <table  mat-table [dataSource]="event$" class="mat-elevation-z8" >
+    <table  mat-table [dataSource]="details" class="mat-elevation-z8" >
       
       
       <ng-container matColumnDef="firstname">
@@ -83,4 +57,4 @@
 
     </table>
   </mat-card>
-</div> -->
+</div>

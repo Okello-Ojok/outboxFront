@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatInputModule, MatSelectModule, MatOptionModule, MatRadioModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatToolbarModule, MatAutocompleteModule, MatButtonModule, MatProgressSpinnerModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatInputModule, MatSelectModule, MatOptionModule, MatRadioModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
 import { OurNavComponent } from './our-nav/our-nav.component';
 import { MyDashComponent } from './my-dash/my-dash.component';
@@ -28,9 +28,7 @@ import { EventRegisterComponent } from './events/event-register/event-register.c
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
-//import { EventsListComponent } from './events/events-list/events-list.component';
-
-
+import { EventAttendeeComponent } from './event-attendee/event-attendee.component';
 
 
 
@@ -54,7 +52,8 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
     EventRegisterComponent,
     CreateEventComponent,
     PageNotFoundComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    EventAttendeeComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +61,7 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
@@ -79,7 +79,9 @@ import { EventDetailComponent } from './events/event-detail/event-detail.compone
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
 
   ],

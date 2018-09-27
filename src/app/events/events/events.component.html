@@ -36,7 +36,7 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>
-            <mat-icon>create</mat-icon>
+            <mat-icon >create</mat-icon>
             <span>Update</span>
           </button>
           <button mat-menu-item>
@@ -52,7 +52,8 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       
         
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+      [routerLink]="['/event-details/', row._id]"></tr>
       
     </table>
   </mat-card>

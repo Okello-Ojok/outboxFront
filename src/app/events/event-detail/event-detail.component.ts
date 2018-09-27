@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { switchMap } from 'rxjs/operators';
-//import { Events } from '../../events';
+import { Event } from '../../events.model';
+import { Attendee } from '../../events.model';
 import { EventsService } from '../../events.service';
 
 
@@ -15,15 +15,26 @@ import { EventsService } from '../../events.service';
 })
 export class EventDetailComponent implements OnInit {
 
-  //event$: Observable<Events[]>  
-  event$: Object;
+  details: {};
+
+  displayedColumns = ['firstname', 'lastname', 'email', 'phone', 'actions'];
 
 
-  constructor(private router: Router, private route: ActivatedRoute, 
-              private eventsService: EventsService) { }
+
+  constructor(private router: Router, private route: ActivatedRoute,
+    private eventsService: EventsService) { }
 
   ngOnInit() {
-    
+    this.getDetails(this.route.snapshot.params['id']);
+
+  }
+
+  getDetails(id) {
+    this.eventsService.getDetails(id)
+      .subscribe(data => {
+        console.log(data);
+        this.details = data;
+      });
   }
 
 

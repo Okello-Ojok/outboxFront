@@ -6,30 +6,21 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      <!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
       <form (submit)="onAddEvent(eventForm)" #eventForm="ngForm">
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input 
-                  matInput 
-                  placeholder="Event Name" 
-                  [(ngModel)]="eventname" 
-                  name="eventname" 
-                  required>
+                <input matInput placeholder="Event Name" [ngModel]="event?.eventname" name="eventname" #eventname="ngModel" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input 
-                  matInput 
-                  [matDatepicker]="picker" 
-                  placeholder="Event Date" 
-                  [(ngModel)]="eventDate"
-                  name="eventDate"
-                  required>
+                <input matInput [matDatepicker]="picker" placeholder="Event Date" [ngModel]="event?.eventDate" name="eventDate"
+                #eventDate="ngModel" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
@@ -40,35 +31,27 @@
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
-              <mat-select 
-                placeholder="Paid Event?" 
-                name="payment" 
-                [(ngModel)]="paid">
+              <mat-select placeholder="Paid Event?" name="payment" [ngModel]="event?.paid" #paid="ngModel">
                 <mat-option *ngFor="let paid of payment" [value]="paid">
                   {{paid}}
                 </mat-option>
               </mat-select>
             </td>
           </tr>
-          
+
         </table>
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input 
-                  matInput 
-                  placeholder="Facilitators" 
-                  [(ngModel)]="facilitators" 
-                  name="facilitators" 
-                  required>
+                <input matInput placeholder="Facilitators" [ngModel]="event?.facilitators" name="facilitators" #facilitators="ngModel" required>
               </mat-form-field>
             </td>
           </tr>
-         
+
         </table>
-        
-        <button mat-raised-button type="submit" color="primary">Create Event</button>
+
+        <button mat-raised-button type="submit" color="primary">Save Event</button>
 
       </form>
     </mat-card-content>

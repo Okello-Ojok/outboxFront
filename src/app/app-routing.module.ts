@@ -55,13 +55,12 @@ const routes: Routes = [
   },
   {
     path: 'events',
-    component: EventsComponent,
-    children: [
-      {
-        path: 'event/:id',
-        component: EventDetailComponent
-      }
-    ]
+    component: EventsComponent
+    
+  },
+  {
+    path: 'event-details/:id',
+    component: EventDetailComponent
   },
   {
     path: 'utilities',
@@ -72,11 +71,15 @@ const routes: Routes = [
     component: ResidentsListComponent
   },
   {
-    path: 'event-register',
+    path: 'attend',
     component: EventRegisterComponent
   },
   {
     path: 'create-event',
+    component: CreateEventComponent
+  },
+  {
+    path: 'edit-event/:eventID',
     component: CreateEventComponent
   },
   {

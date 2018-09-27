@@ -20,6 +20,7 @@ export class EventsService {
   private attendees: Attendee[];
   private events: Event[];
   
+  
 
   // private uri = 'http://localhost:3000/eventreg/all/:get';
 
@@ -30,6 +31,31 @@ export class EventsService {
   getAttendees(): Observable<Attendee[]> {
     return this.http.get<Attendee[]>(this.uri)
   }
+
+  getDetails(id: string): Observable<Attendee[]> {
+    return this.http.get<Attendee[]>('http://localhost:3000/eventreg/all/:get')
+    
+  }
+
+  // getDetails(id: string): Observable<Attendee[]> {
+  //   return this.http.get<Attendee[]>(this.uri)
+    
+  // }
+
+  // getDetails(id: string): Observable<any> {
+  //   const url = `${apiUrl}/${id}`;
+  //   return this.http.get(url, httpOptions).pipe(
+  //     map(this.extractData),
+  //     catchError(this.handleError));
+  // }
+
+
+  getEvent(id: string) {
+    return this.http.get<{ _id: string; eventname: string; eventDate: Date; eventPaid: string; facilitators: string }>(
+      "http://localhost:3000/eventreg/edit-event/" + id
+    );
+  }
+
 
 
   addEvent(eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
@@ -47,31 +73,31 @@ export class EventsService {
         const id = responseData.eventId;
         event.id = id;
         this.events.push(event);
-        // this.postsUpdated.next([...this.posts]);
-        //this.router.navigate(["/"]);
+        // this.eventsUpdated.next([...this.events]);
+        this.router.navigate(["/events"]);
       });
   }
 
 
-  // updateEvent(id: string, eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
-  //   const event: Event = { 
-  //     id: id, 
-  //     eventname: eventname,
-  //     eventDate: eventDate,
-  //     eventPaid: eventPaid,
-  //     facilitators: facilitators
-  //   };
-  //   this.http
-  //     .put("http://localhost:3000/api/posts/" + id, event)
-  //     .subscribe(response => {
-  //       const updatedPosts = [...this.posts];
-  //       const oldPostIndex = updatedPosts.findIndex(p => p.id === post.id);
-  //       updatedPosts[oldPostIndex] = post;
-  //       this.posts = updatedPosts;
-  //       this.postsUpdated.next([...this.posts]);
-  //       this.router.navigate(["/"]);
-  //     });
-  // }
+  updateEvent(id: string, eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
+    const event: Event = { 
+      id: id, 
+      eventname: eventname,
+      eventDate: eventDate,
+      eventPaid: eventPaid,
+      facilitators: facilitators
+    };
+    this.http
+      .put("http://localhost:3000/eventreg/edit-event/" + id, event)
+      .subscribe(response => {
+        const updatedEvents = [...this.events];
+        const oldEventIndex = updatedEvents.findIndex(e => e.id === event.id);
+        updatedEvents[oldEventIndex] = event;
+        this.events = updatedEvents;
+        // this.postsUpdated.next([...this.posts]);
+        this.router.navigate(["/"]);
+      });
+  }
 
 
 }

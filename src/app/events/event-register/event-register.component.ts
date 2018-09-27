@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-event-register',
@@ -15,6 +16,9 @@ export class EventRegisterComponent implements OnInit {
 
   role = null;
   roles = ["Attendee", "Facilitator"];
+
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three'];
 
   constructor() { }
 
