@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { Router } from "@angular/router";
 
 
@@ -14,13 +15,13 @@ import { Attendee } from './events.model';
 })
 export class EventsService {
 
-  
+
 
   //events: Events[]
   private attendees: Attendee[];
   private events: Event[];
-  
-  
+
+
 
   // private uri = 'http://localhost:3000/eventreg/all/:get';
 
@@ -29,25 +30,18 @@ export class EventsService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getAttendees(): Observable<Attendee[]> {
-    return this.http.get<Attendee[]>(this.uri)
+    return this.http.get<Attendee[]>('http://localhost:3000/eventreg/')
+  }
+
+
+  getEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>('http://localhost:3000/eventreg/five')
   }
 
   getDetails(id: string): Observable<Attendee[]> {
     return this.http.get<Attendee[]>('http://localhost:3000/eventreg/all/:get')
-    
+
   }
-
-  // getDetails(id: string): Observable<Attendee[]> {
-  //   return this.http.get<Attendee[]>(this.uri)
-    
-  // }
-
-  // getDetails(id: string): Observable<any> {
-  //   const url = `${apiUrl}/${id}`;
-  //   return this.http.get(url, httpOptions).pipe(
-  //     map(this.extractData),
-  //     catchError(this.handleError));
-  // }
 
 
   getEvent(id: string) {
@@ -80,8 +74,8 @@ export class EventsService {
 
 
   updateEvent(id: string, eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
-    const event: Event = { 
-      id: id, 
+    const event: Event = {
+      id: id,
       eventname: eventname,
       eventDate: eventDate,
       eventPaid: eventPaid,
@@ -98,6 +92,33 @@ export class EventsService {
         this.router.navigate(["/"]);
       });
   }
+
+
+
+
+
+// addAttendee(firstname: string, lastname: string, email: string, phone: string, company: string, eventAtt: string) {
+//     const attendee: Attendee = {
+//       id: null,
+//       firstname: firstname,
+//       lastname: lastname,
+//       email: email,
+//       phone: phone,
+//       company: company,
+//       eventAtt: eventAtt 
+//     };
+//     this.http
+//       .post<{ message: string; eventId: string }>(
+//         "http://localhost:3000/eventreg/create-event/", attendee)
+//       .subscribe(responseData => {
+//         const id = responseData.eventId;
+//         event.id = id;
+//         this.attendees.push(attendee);
+//         // this.eventsUpdated.next([...this.events]);
+//         this.router.navigate(["/events"]);
+//       });
+//   }
+
 
 
 }

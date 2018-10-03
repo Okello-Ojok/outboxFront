@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import { Event } from '../../events.model';
+import { Observable, observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+
+import { take } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+
+import { EventsService } from '../../events.service';
+import { Attendee } from '../../events.model';
 
 @Component({
   selector: 'app-event-register',
@@ -8,21 +16,28 @@ import {FormControl} from '@angular/forms';
 })
 export class EventRegisterComponent implements OnInit {
 
+  events: Event[]
   sex = null;
   gender = ["Male", "Female"];
 
   occupation = null;
   occupations = ["Student", "Proffessional", "Other"];
 
-  role = null;
-  roles = ["Attendee", "Facilitator"];
 
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  constructor(private eventsService: EventsService) { }
 
-  constructor() { }
 
   ngOnInit() {
+    this.eventsService.getEvents()
+      .subscribe(data => {
+        this.events = data
+        console.log(data);
+        
+      }, err => {
+        console.log(err);
+        
+      });
+      console.log(this.events);
+   
   }
-
 }

@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatAutocompleteModule, MatButtonModule, MatProgressSpinnerModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatInputModule, MatSelectModule, MatOptionModule, MatRadioModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatToolbarModule, MatButtonToggleModule, MatBadgeModule, MatFormFieldModule, MatAutocompleteModule, MatButtonModule, MatProgressSpinnerModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatInputModule, MatSelectModule, MatOptionModule, MatRadioModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
 import { OurNavComponent } from './our-nav/our-nav.component';
 import { MyDashComponent } from './my-dash/my-dash.component';
@@ -29,6 +29,7 @@ import { CreateEventComponent } from './events/create-event/create-event.compone
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { EventAttendeeComponent } from './event-attendee/event-attendee.component';
+import { EventsBoardComponent } from './events/events-board/events-board.component';
 
 
 
@@ -53,7 +54,8 @@ import { EventAttendeeComponent } from './event-attendee/event-attendee.componen
     CreateEventComponent,
     PageNotFoundComponent,
     EventDetailComponent,
-    EventAttendeeComponent
+    EventAttendeeComponent,
+    EventsBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,7 @@ import { EventAttendeeComponent } from './event-attendee/event-attendee.componen
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatGridListModule,
+    MatGridListModule, MatButtonToggleModule,
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
@@ -77,12 +79,13 @@ import { EventAttendeeComponent } from './event-attendee/event-attendee.componen
     MatCardModule,
     MatMenuModule,
     MatTableModule,
-    MatPaginatorModule,
+    MatPaginatorModule, MatBadgeModule,
     MatSortModule,
     MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule
 
   ],
   providers: [ResidentsService, EventsService],

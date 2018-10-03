@@ -16,7 +16,7 @@
 //     attendee: {
 //         [key: string]: Attendee
 //     }
-    
+
 // }
 
 
@@ -29,10 +29,10 @@ export interface Event {
     // attendee: {
     //     [key: string]: Attendee
     // }
-    
+
 }
 
-
+export declare type Events = Event[];
 
 export interface Attendee {
     id: string;
@@ -41,8 +41,14 @@ export interface Attendee {
     email: string;
     phone: string;
     company: string;
-    eventAtt: {
-        [key: string]: Event
-    };
+    eventAtt: Events 
+    // eventAtt: {
+    //     [key: string]: Event
+    // };
 }
 
+
+
+// export interface EventsResponse {
+    
+//   }

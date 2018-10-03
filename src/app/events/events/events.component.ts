@@ -18,8 +18,7 @@ export class EventsComponent implements OnInit {
   //events: Events[];
   attendees: Attendee[]
   isLoading = false;
-  private attendeeSub: Subscription;
-
+  
   // displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname', 'lastname', 'email', 'phone', 'actions'];
 
   displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'facilitators', 'actions'];
