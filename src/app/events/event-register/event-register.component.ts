@@ -28,16 +28,18 @@ export class EventRegisterComponent implements OnInit {
 
 
   ngOnInit() {
-    this.eventsService.getEvents()
-      .subscribe(data => {
-        this.events = data
-        console.log(data);
+    // this.eventsService.getEvents()
+    //   .subscribe(data => {
+    //     this.events = data
+    //     console.log(data);
         
-      }, err => {
-        console.log(err);
+    //   }, err => {
+    //     console.log(err);
         
-      });
-      console.log(this.events);
+    //   });
+    //   console.log(this.events);
+
+    this.eventsService.addAttendee();
    
   }
 }

@@ -97,27 +97,28 @@ export class EventsService {
 
 
 
-// addAttendee(firstname: string, lastname: string, email: string, phone: string, company: string, eventAtt: string) {
-//     const attendee: Attendee = {
-//       id: null,
-//       firstname: firstname,
-//       lastname: lastname,
-//       email: email,
-//       phone: phone,
-//       company: company,
-//       eventAtt: eventAtt 
-//     };
-//     this.http
-//       .post<{ message: string; eventId: string }>(
-//         "http://localhost:3000/eventreg/create-event/", attendee)
-//       .subscribe(responseData => {
-//         const id = responseData.eventId;
-//         event.id = id;
-//         this.attendees.push(attendee);
-//         // this.eventsUpdated.next([...this.events]);
-//         this.router.navigate(["/events"]);
-//       });
-//   }
+addAttendee(firstname: string, lastname: string, email: string, phone: string, company: string, eventAtt: Event) {
+    const attendee: Attendee = {
+      id: null,
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      phone: phone,
+      company: company,
+      eventAtt: eventAtt
+    };
+   return  this.http
+      .post<any>(
+        "http://localhost:3000/eventreg/event-attendee/", attendee)
+      .subscribe((responseData: any) => {
+        // const id = responseData.attendeeId;
+        // attendee.id = id;responseTyperesponseTyperesponseType
+        // this.attendees.push(responseData);
+       alert(responseData.message);
+        // this.eventsUpdated.next([...this.events]);
+        this.router.navigate(["/events"]);
+      });
+  }
 
 
 
