@@ -42,7 +42,7 @@ export interface Attendee {
     phone: string;
     gender: string;
     occupation: string;
-    // eventAtt: Event;
+    eventAtt: Event;
 }
 
 

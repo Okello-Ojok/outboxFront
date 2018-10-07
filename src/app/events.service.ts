@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpHandler } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-// import { ENV } from './env.config';
 import { map, tap } from 'rxjs/operators';
 import { Router } from "@angular/router";
 
@@ -77,7 +76,7 @@ export class EventsService {
   }
 
 
-
+// ADD Event
   addEvent(eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
     const event: Event = {
       id: null,
@@ -98,7 +97,7 @@ export class EventsService {
       });
   }
 
-
+// EDIT Event
   updateEvent(id: string, eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
     const event: Event = {
       id: id,
@@ -120,8 +119,8 @@ export class EventsService {
   }
 
 
-
-  addAttendee(firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string) {
+// ADD Attendee
+  addAttendee(firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string, eventAtt: Event) {
     const attendee: Attendee = {
       id: null,
       firstname: firstname,
@@ -129,8 +128,8 @@ export class EventsService {
       email: email,
       phone: phone,
       gender: gender,
-      occupation: occupation
-      // eventAtt: eventAtt
+      occupation: occupation,
+      eventAtt: eventAtt
     };
     this.http
       .post<{ message: string; attendeeId: string }>(
@@ -146,10 +145,8 @@ export class EventsService {
   }
 
 
-
-
-
-  updateAttendee(id: string, firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string) {
+// EDIT Attendee
+  updateAttendee(id: string, firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string, eventAtt: Event) {
     const attendee: Attendee = {
       id: id,
       firstname: firstname,
@@ -157,7 +154,8 @@ export class EventsService {
       email: email,
       phone: phone,
       gender: gender,
-      occupation: occupation
+      occupation: occupation,
+      eventAtt: eventAtt
 
     };
     this.http
@@ -178,9 +176,6 @@ export class EventsService {
       "http://localhost:3000/eventreg/event-attendee/" + id
     );
   }
-
-
-
 
 
   // POST new attendee

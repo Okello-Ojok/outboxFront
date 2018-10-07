@@ -53,7 +53,8 @@ export class EventRegisterComponent implements OnInit {
         this.isLoading = true;
         this.eventsService.getAttendee(this.attendeeID).subscribe(attendeeData => {
           this.isLoading = false;
-          this.attendee = {id: attendeeData.id, firstname: attendeeData.firstname, lastname: attendeeData.lastname, email: attendeeData.email, phone: attendeeData.phone, gender: attendeeData.gender, occupation: attendeeData.occupation};
+          this.attendee = {id: attendeeData.id, firstname: attendeeData.firstname, lastname: attendeeData.lastname, email: attendeeData.email, phone: attendeeData.phone, 
+            gender: attendeeData.gender, occupation: attendeeData.occupation, eventAtt: attendeeData.eventAtt};
         })
 
       } else{
@@ -75,7 +76,7 @@ export class EventRegisterComponent implements OnInit {
     }
     this.isLoading = true;
     if (this.mode === "create") {
-      this.eventsService.addAttendee(form.value.firstname, form.value.lastname, form.value.email, form.value.phone, form.value.gender, form.value.occupation);
+      this.eventsService.addAttendee(form.value.firstname, form.value.lastname, form.value.email, form.value.phone, form.value.gender, form.value.occupation, form.value.ourEvents);
     } 
     // else {
     //   this.eventsService.updateAttendee(
