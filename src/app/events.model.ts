@@ -32,7 +32,7 @@ export interface Event {
 
 }
 
-// export declare type Events = Event[];
+
 
 export interface Attendee {
     id: string;
@@ -40,13 +40,10 @@ export interface Attendee {
     lastname: string;
     email: string;
     phone: string;
-    company: string;
-    // eventAtt: Events 
-    eventAtt: Event
+    gender: string;
+    occupation: string;
+    // eventAtt: Event;
 }
 
 
 
-// export interface EventsResponse {
-    
-//   }

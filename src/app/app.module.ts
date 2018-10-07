@@ -30,6 +30,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { EventAttendeeComponent } from './event-attendee/event-attendee.component';
 import { EventsBoardComponent } from './events/events-board/events-board.component';
+import { LoadingComponent } from './loading.component';
 
 
 
@@ -55,7 +56,8 @@ import { EventsBoardComponent } from './events/events-board/events-board.compone
     PageNotFoundComponent,
     EventDetailComponent,
     EventAttendeeComponent,
-    EventsBoardComponent
+    EventsBoardComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

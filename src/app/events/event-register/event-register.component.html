@@ -3,33 +3,32 @@
     <mat-card-header>
       <mat-card-title class="title">
         <h1>Event Registration</h1>
+        
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
-        <!-- <div *ngFor="let event of events">
-          {{event.eventname}}
-        </div> -->
-        <div >
+      <form (submit)="onAddAttendee(attendeeForm)" #attendeeForm="ngForm">
+       
+        <!-- <div >n
           <h4>Choose Event to register for.</h4>
           <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
               <mat-button-toggle value="bold" *ngFor="let event of events">{{event.eventname}}</mat-button-toggle>
               
             </mat-button-toggle-group>
             
-        </div>
+        </div> -->
         
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input matInput placeholder="First Name" [(ngModel)]="firstname" name="firstname" required>
+                <input matInput placeholder="First Name" [ngModel]="attendee?.firstname" name="firstname" #firstname="ngModel" required>
               </mat-form-field>
             </td>
 
             <td>
               <mat-form-field class="full-width">
-                <input matInput placeholder="Last Name" [(ngModel)]="lastname" name="lastname" required>
+                <input matInput placeholder="Last Name" [ngModel]="attendee?.lastname" name="lastname" #lastname="ngModel" required>
               </mat-form-field>
             </td>
           </tr>
@@ -39,38 +38,25 @@
           <tr>
             <td>
               <mat-form-field class="full-width">
-                <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+                <input matInput placeholder="Email" [ngModel]="attendee?.email" name="email" #email="ngModel" required>
               </mat-form-field>
             </td>
             <td>
               <mat-form-field class="full-width">
-                <input matInput placeholder="Telephone" [(ngModel)]="telephone" name="telephone" required>
+                <input matInput placeholder="Telephone" [ngModel]="attendee?.telephone" name="telephone" #telephone="ngModel" required>
               </mat-form-field>
             </td>
             
           </tr>
         </table>
 
-        <!-- <table>
-          <tr>
-            <td>
-                <mat-form-field>
-                    <input [formControl]="autoCompleteControl" type="text" placeholder="Pick one" aria-label="Number" matInput [matAutocomplete]="auto">
-                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                      <mat-option *ngFor="let item of eventAutoComplete$ | async" [value]="item">
-                        {{ item.eventname | titlecase}}
-                      </mat-option>
-                    </mat-autocomplete>
-                  </mat-form-field>
-            </td>
-          </tr>
-        </table> -->
+        
 
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field>
-                <mat-select placeholder="Gender" name="gender" [(ngModel)]="sex">
+                <mat-select placeholder="Gender" name="gender" [ngModel]="attendee?.sex" #sex="ngModel" required>
                   <mat-option *ngFor="let sex of gender" [value]="sex">
                     {{sex}}
                   </mat-option>
@@ -80,7 +66,7 @@
 
             <td>
               <mat-form-field>
-                <mat-select placeholder="Occupation" name="occupation" [(ngModel)]="occupation">
+                <mat-select placeholder="Occupation" name="occupation" [ngModel]="attendee?.occupation" #occupation="ngModel" required>
                   <mat-option *ngFor="let occupation of occupations" [value]="occupation">
                     {{occupation}}
                   </mat-option>

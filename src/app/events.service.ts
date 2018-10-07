@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpHandler } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+// import { ENV } from './env.config';
 import { map, tap } from 'rxjs/operators';
 import { Router } from "@angular/router";
 
@@ -18,8 +20,8 @@ export class EventsService {
 
 
   //events: Events[]
-  private attendees: Attendee[];
-  private events: Event[];
+  private attendees: Attendee[]=[];
+  private events: Event[]=[];
 
 
 
@@ -48,6 +50,30 @@ export class EventsService {
     return this.http.get<{ _id: string; eventname: string; eventDate: Date; eventPaid: string; facilitators: string }>(
       "http://localhost:3000/eventreg/edit-event/" + id
     );
+  }
+
+
+
+  // GET an event by ID
+  getEventById(id: string): Observable<Event> {
+    return this.http
+      .get<Event>("http://localhost:3000/eventreg/event/" + id)
+      .pipe(catchError((error, caught) => {
+        console.log('Error Occurred');
+        console.log(error);
+        return Observable.throw(error);
+      })) as any;
+  }
+
+  // GET Attendees by event ID
+  getAttendeesByEventId(eventId: string): Observable<Attendee[]> {
+    return this.http
+      .get<Attendee[]>(`${'http://localhost:3000/eventreg/'}event/${eventId}/attendees`)
+      .pipe(catchError((error, caught) => {
+        console.log('Error Occurred');
+        console.log(error);
+        return Observable.throw(error);
+      })) as any;
   }
 
 
@@ -95,31 +121,77 @@ export class EventsService {
 
 
 
-
-
-addAttendee(firstname: string, lastname: string, email: string, phone: string, company: string, eventAtt: Event) {
+  addAttendee(firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string) {
     const attendee: Attendee = {
       id: null,
       firstname: firstname,
       lastname: lastname,
       email: email,
       phone: phone,
-      company: company,
-      eventAtt: eventAtt
+      gender: gender,
+      occupation: occupation
+      // eventAtt: eventAtt
     };
-   return  this.http
-      .post<any>(
+    this.http
+      .post<{ message: string; attendeeId: string }>(
         "http://localhost:3000/eventreg/event-attendee/", attendee)
-      .subscribe((responseData: any) => {
-        // const id = responseData.attendeeId;
-        // attendee.id = id;responseTyperesponseTyperesponseType
-        // this.attendees.push(responseData);
-       alert(responseData.message);
+      .subscribe(responseData => {
+        const id = responseData.attendeeId;
+        attendee.id = id;
+        this.attendees.push(attendee);
+        //  alert(responseData.message);
         // this.eventsUpdated.next([...this.events]);
-        this.router.navigate(["/events"]);
+        // this.router.navigate(["/events"]);
       });
   }
 
 
+
+
+
+  updateAttendee(id: string, firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string) {
+    const attendee: Attendee = {
+      id: id,
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      phone: phone,
+      gender: gender,
+      occupation: occupation
+
+    };
+    this.http
+      .put("http://localhost:3000/eventreg/event-attendee/" + id, attendee)
+      .subscribe(response => {
+        const updatedAttendees = [...this.attendees];
+        const oldAttendeeIndex = updatedAttendees.findIndex(e => e.id === attendee.id);
+        updatedAttendees[oldAttendeeIndex] = attendee;
+        this.attendees = updatedAttendees;
+        // this.postsUpdated.next([...this.posts]);
+        this.router.navigate(["/"]);
+      });
+  }
+
+
+  getAttendee(id: string) {
+    return this.http.get<Attendee>(
+      "http://localhost:3000/eventreg/event-attendee/" + id
+    );
+  }
+
+
+
+
+
+  // POST new attendee
+  postAttendee(attendee: Attendee): Observable<Attendee> {
+    return this.http
+      .post<Attendee>("http://localhost:3000/eventreg/event-attendee/", attendee)
+      .pipe(catchError((error, caught) => {
+        console.log('Error Occurred');
+        console.log(error);
+        return Observable.throw(error);
+      })) as any;
+  }
 
 }
