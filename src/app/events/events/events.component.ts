@@ -47,12 +47,17 @@ export class EventsComponent implements OnInit {
         console.log(err);
         
       });
-      console.log(this.dataSource);
-
-    
-    
+      console.log(this.dataSource); 
   }
 
+  // Filter table
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
   
 
 
