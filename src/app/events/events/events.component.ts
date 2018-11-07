@@ -20,7 +20,7 @@ export class EventsComponent implements OnInit {
   attendees: Attendee[]
   isLoading = false;
   
-  /// displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname', 'lastname', 'email', 'phone', 'actions'];
+  // displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname', 'lastname', 'email', 'phone', 'actions'];
 
   displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'facilitators', 'actions'];
   dataSource: MatTableDataSource<Attendee>;
@@ -34,9 +34,10 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     
-
+    this.isLoading = true;
     this.eventsService.getAttendees()
       .subscribe(data => {
+        this.isLoading = false;
         // this.attendees = data
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;

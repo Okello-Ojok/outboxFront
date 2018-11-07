@@ -19,6 +19,7 @@ export class EventDetailComponent implements OnInit {
 
 
   details: Attendee[];
+  isLoading= false;
 
   displayedColumns = ['firstname', 'lastname', 'email', 'gender', 'occupation', 'phone',];
 
@@ -28,13 +29,16 @@ export class EventDetailComponent implements OnInit {
     private eventsService: EventsService) { }
 
   ngOnInit() {
+    
     this.getDetails(this.route.snapshot.params['id']);
 
   }
 
   getDetails(id) {
+    this.isLoading = true;
     this.eventsService.getAttendeesByEventId(id)
       .subscribe(data => {
+        this.isLoading = false;
         console.log(data);
         this.details = data;
       });
