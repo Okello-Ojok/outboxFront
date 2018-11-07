@@ -79,7 +79,7 @@ import { LoadingComponent } from './loading.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatMenuModule,
+    MatMenuModule, 
     MatTableModule,
     MatPaginatorModule, MatBadgeModule,
     MatSortModule,

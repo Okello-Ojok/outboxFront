@@ -20,7 +20,7 @@ export class EventDetailComponent implements OnInit {
 
   details: Attendee[];
 
-  displayedColumns = ['firstname', 'lastname', 'email', 'phone'];
+  displayedColumns = ['firstname', 'lastname', 'email', 'gender', 'occupation', 'phone',];
 
 
 
