@@ -27,7 +27,7 @@ import { ResidentsListComponent } from './residents-list/residents-list.componen
 import { EventRegisterComponent } from './events/event-register/event-register.component';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { EventDetailComponent } from './events/event-detail/event-detail.component';
+import { EventDetailComponent } from './events/events/event-detail/event-detail.component';
 import { EventAttendeeComponent } from './event-attendee/event-attendee.component';
 import { EventsBoardComponent } from './events/events-board/events-board.component';
 import { LoadingComponent } from './loading.component';

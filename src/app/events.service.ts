@@ -19,8 +19,8 @@ export class EventsService {
 
 
   //events: Events[]
-  private attendees: Attendee[]=[];
-  private events: Event[]=[];
+  private attendees: Attendee[] = [];
+  private events: Event[] = [];
 
 
 
@@ -65,9 +65,9 @@ export class EventsService {
   }
 
   // GET Attendees by event ID
-  getAttendeesByEventId(eventId: string): Observable<Attendee[]> {
+  getAttendeesByEventId(eventAtt: string): Observable<Attendee[]> {
     return this.http
-      .get<Attendee[]>(`${'http://localhost:3000/eventreg/'}event/${eventId}/attendees`)
+      .get<Attendee[]>(`${'http://localhost:3000/eventreg/'}/${eventAtt}/attendees`)
       .pipe(catchError((error, caught) => {
         console.log('Error Occurred');
         console.log(error);
@@ -76,7 +76,7 @@ export class EventsService {
   }
 
 
-// ADD Event
+  // ADD Event
   addEvent(eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
     const event: Event = {
       id: null,
@@ -97,7 +97,7 @@ export class EventsService {
       });
   }
 
-// EDIT Event
+  // EDIT Event
   updateEvent(id: string, eventname: string, eventDate: Date, eventPaid: string, facilitators: string) {
     const event: Event = {
       id: id,
@@ -119,7 +119,7 @@ export class EventsService {
   }
 
 
-// ADD Attendee
+  // ADD Attendee
   addAttendee(firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string, eventAtt: Event) {
     const attendee: Attendee = {
       id: null,
@@ -145,7 +145,7 @@ export class EventsService {
   }
 
 
-// EDIT Attendee
+  // EDIT Attendee
   updateAttendee(id: string, firstname: string, lastname: string, email: string, phone: string, gender: string, occupation: string, eventAtt: Event) {
     const attendee: Attendee = {
       id: id,

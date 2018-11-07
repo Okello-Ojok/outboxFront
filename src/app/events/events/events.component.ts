@@ -40,14 +40,11 @@ export class EventsComponent implements OnInit {
       console.log(this.attendees);
   }
 
-//   gotoEventDetails(url, id) {
-//     this.router.navigate([url, id]).then( (e) => {
-//       if (e) {
-//         console.log("Navigation is successful!");
-//       } else {
-//         console.log("Navigation has failed!");
-//       }
-//     });
-// }
+  
+
+
+  
+
+
 
 }

@@ -16,7 +16,7 @@ import { EventRegisterComponent } from './events/event-register/event-register.c
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 //import { EventsListComponent } from './events/events-list/events-list.component';
-import { EventDetailComponent } from './events/event-detail/event-detail.component';
+import { EventDetailComponent } from './events/events/event-detail/event-detail.component';
 
 
 

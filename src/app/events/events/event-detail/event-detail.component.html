@@ -12,22 +12,23 @@
       
       <ng-container matColumnDef="firstname">
         <th mat-header-cell *matHeaderCellDef>First Name</th>
-        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.firstname}}</span> <span *ngIf="!element.attendee">N/a</span></td>
+        <!-- <td mat-cell *matCellDef="let element"> {{element.eventname}} </td> -->
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.firstname">{{element.firstname}}</span> <span *ngIf="!element.firstname">N/a</span></td>
       </ng-container>
 
       <ng-container matColumnDef="lastname">
         <th mat-header-cell *matHeaderCellDef>Last Name</th>
-        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.lastname}}</span> <span *ngIf="!element.attendee">N/a</span></td>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.lastname">{{element.lastname}}</span> <span *ngIf="!element.lastname">N/a</span></td>
       </ng-container>
 
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef>Email</th>
-        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.email}}</span> <span *ngIf="!element.attendee">N/a</span></td>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.email">{{element.email}}</span> <span *ngIf="!element.email">N/a</span></td>
       </ng-container>
 
       <ng-container matColumnDef="phone">
         <th mat-header-cell *matHeaderCellDef>Phone</th>
-        <td mat-cell *matCellDef="let element"> <span *ngIf="element.attendee">{{element.attendee.phone}}</span> <span *ngIf="!element.attendee">N/a</span></td>
+        <td mat-cell *matCellDef="let element"> <span *ngIf="element.phone">{{element.phone}}</span> <span *ngIf="!element.phone">N/a</span></td>
       </ng-container>
       
 

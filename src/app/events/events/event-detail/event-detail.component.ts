@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Event } from '../../events.model';
-import { Attendee } from '../../events.model';
-import { EventsService } from '../../events.service';
+
+import { Event } from '../../../events.model';
+import { Attendee } from '../../../events.model';
+import { EventsService } from '../../../events.service';
 
 
 
@@ -14,10 +15,12 @@ import { EventsService } from '../../events.service';
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent implements OnInit {
+ 
 
-  details: {};
 
-  displayedColumns = ['firstname', 'lastname', 'email', 'phone', 'actions'];
+  details: Attendee[];
+
+  displayedColumns = ['firstname', 'lastname', 'email', 'phone'];
 
 
 
@@ -30,7 +33,7 @@ export class EventDetailComponent implements OnInit {
   }
 
   getDetails(id) {
-    this.eventsService.getDetails(id)
+    this.eventsService.getAttendeesByEventId(id)
       .subscribe(data => {
         console.log(data);
         this.details = data;
