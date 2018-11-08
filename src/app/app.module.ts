@@ -31,6 +31,7 @@ import { EventDetailComponent } from './events/events/event-detail/event-detail.
 import { EventAttendeeComponent } from './event-attendee/event-attendee.component';
 import { EventsBoardComponent } from './events/events-board/events-board.component';
 import { LoadingComponent } from './loading.component';
+import { PageUnder0constructionComponent } from './page-under0construction/page-under0construction.component';
 
 
 
@@ -57,7 +58,8 @@ import { LoadingComponent } from './loading.component';
     EventDetailComponent,
     EventAttendeeComponent,
     EventsBoardComponent,
-    LoadingComponent
+    LoadingComponent,
+    PageUnder0constructionComponent
   ],
   imports: [
     BrowserModule,

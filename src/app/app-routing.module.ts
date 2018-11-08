@@ -17,7 +17,7 @@ import { CreateEventComponent } from './events/create-event/create-event.compone
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 //import { EventsListComponent } from './events/events-list/events-list.component';
 import { EventDetailComponent } from './events/events/event-detail/event-detail.component';
-
+import { PageUnder0constructionComponent } from './page-under0construction/page-under0construction.component';
 
 
 
@@ -43,7 +43,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: OurNavComponent
+    component: PageUnder0constructionComponent
   },
   {
     path: 'assets',
@@ -81,6 +81,11 @@ const routes: Routes = [
   {
     path: 'edit-event/:eventID',
     component: CreateEventComponent
+  },
+  {
+    path: 'page-under-construction',
+    component:   PageUnder0constructionComponent
+
   },
   {
     path: '**',
