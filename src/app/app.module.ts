@@ -34,7 +34,7 @@ import { LoadingComponent } from './loading.component';
 import { PageUnder0constructionComponent } from './page-under0construction/page-under0construction.component';
 import { ChartsComponent } from './charts/charts.component';
 
-
+import { WeatherService } from './weather.service';
 
 
 @NgModule({
@@ -94,7 +94,7 @@ import { ChartsComponent } from './charts/charts.component';
     MatFormFieldModule
 
   ],
-  providers: [ResidentsService, EventsService],
+  providers: [ResidentsService, EventsService, WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
