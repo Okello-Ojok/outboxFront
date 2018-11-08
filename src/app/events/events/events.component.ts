@@ -42,7 +42,7 @@ export class EventsComponent implements OnInit {
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(data);
+        console.log(this.dataSource);
         
       }, err => {
         console.log(err);
@@ -59,9 +59,14 @@ export class EventsComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  
+  navigate(id){
+  this.router.navigate(['/event-details/', id]);
+  }
 
-
+  onDelete(id: string){
+    this.eventsService.deleteEvent(id);
+    
+  }
   
 
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpHandler } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { map, tap } from 'rxjs/operators';
 import { Router } from "@angular/router";
@@ -21,6 +21,7 @@ export class EventsService {
   //events: Events[]
   private attendees: Attendee[] = [];
   private events: Event[] = [];
+  private eventsUpdated = new Subject<Event[]>()
 
 
 
@@ -173,9 +174,27 @@ export class EventsService {
 
   getAttendee(id: string) {
     return this.http.get<Attendee>(
-      "http://localhost:3000/eventreg/event-attendee/" + id
-    );
+      "http://localhost:3000/eventreg/event-attendee/" + id);
   }
+
+
+
+  
+// DELETE Event and associated attendees
+deleteEvent(id: string) {
+  return this.http.delete("http://localhost:3000/eventreg/"+ id)
+  .subscribe(() => {
+    const updatedEvents = this.events.filter(event => event.id !== id)
+    this.events = updatedEvents
+      this.eventsUpdated.next([...this.events]);
+    // const updatedEvents = this.events.filter(event => { 
+    //   this.events = updatedEvents
+    //   this.eventsUpdated.next([...this.events]);
+
+    // })
+  })
+}
+
 
 
   // POST new attendee

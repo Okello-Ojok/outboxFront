@@ -62,10 +62,7 @@ export class EventRegisterComponent implements OnInit {
         this.attendeeID = null;
       }
 
-    });
-
-
-    
+    });  
 
   }
 
@@ -89,4 +86,6 @@ export class EventRegisterComponent implements OnInit {
     // }
     form.resetForm();
   }
+
+  
 }

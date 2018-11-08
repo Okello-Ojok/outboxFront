@@ -66,7 +66,9 @@
 .mat-column-created {
   max-width: 124px;
 }
-
+.mat-row:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
   
   
   /* .material-icons {
