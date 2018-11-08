@@ -31,8 +31,8 @@ export class EventsService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getAttendees(): Observable<Attendee[]> {
-    return this.http.get<Attendee[]>('http://localhost:3000/eventreg/')
+  getAllEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>('http://localhost:3000/eventreg/')
   }
 
 
@@ -179,21 +179,23 @@ export class EventsService {
 
 
 
-  
-// DELETE Event and associated attendees
-deleteEvent(id: string) {
-  return this.http.delete("http://localhost:3000/eventreg/"+ id)
-  .subscribe(() => {
-    const updatedEvents = this.events.filter(event => event.id !== id)
-    this.events = updatedEvents
-      this.eventsUpdated.next([...this.events]);
-    // const updatedEvents = this.events.filter(event => { 
-    //   this.events = updatedEvents
-    //   this.eventsUpdated.next([...this.events]);
 
-    // })
-  })
-}
+  // DELETE Event and associated attendees
+  deleteEvent(id: string) {
+    return this.http.delete("http://localhost:3000/eventreg/" + id)
+      // .subscribe(() => {
+      //   const updatedEvents = this.events.filter(event => event.id !== id)
+      //   this.events = updatedEvents
+        // this.getAllEvents()
+        // this.eventsUpdated.next([...this.events]);
+        // const updatedEvents = this.events.filter(event => { 
+        //   this.events = updatedEvents
+        //   this.eventsUpdated.next([...this.events]);
+        
+        // })
+      // })
+
+  }
 
 
 

@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild, OnDestroy } from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 
-// import { Events } from '../../events';
+import { Event } from '../../events.model';
 import { Attendee } from '../../events.model';
 
 import { EventsService } from '../../events.service';
@@ -16,26 +16,27 @@ import { EventsService } from '../../events.service';
 })
 export class EventsComponent implements OnInit {
 
-  //events: Events[];
+  events: Event[];
   attendees: Attendee[]
+
   isLoading = false;
   
   // displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'firstname', 'lastname', 'email', 'phone', 'actions'];
 
   displayedColumns = ['eventname', 'eventDate', 'eventPaid', 'facilitators', 'actions'];
-  dataSource: MatTableDataSource<Attendee>;
+  dataSource: MatTableDataSource<Event>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
 
 
-  constructor(private eventsService: EventsService, private router: Router) { }
+  constructor(private eventsService: EventsService, private router: Router, private changeDetectorRefs: ChangeDetectorRef) { }
 
   ngOnInit() {
     
     this.isLoading = true;
-    this.eventsService.getAttendees()
+    this.eventsService.getAllEvents()
       .subscribe(data => {
         this.isLoading = false;
         // this.attendees = data
@@ -49,6 +50,8 @@ export class EventsComponent implements OnInit {
         
       });
       console.log(this.dataSource); 
+
+      this.refreshTable()
   }
 
   // Filter table
@@ -64,10 +67,26 @@ export class EventsComponent implements OnInit {
   }
 
   onDelete(id: string){
-    this.eventsService.deleteEvent(id);
+    console.log('deleting');
+    this.eventsService.deleteEvent(id)
+    .subscribe(result => {
+      this.refreshTable();
+    });
     
   }
+
+  refreshTable(){
+    this.eventsService.getAllEvents()
+    .subscribe(data => {
+      this.events = data;
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      this.changeDetectorRefs.detectChanges();
+    })
+  }
   
+
 
 
 
