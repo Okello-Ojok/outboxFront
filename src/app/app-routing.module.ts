@@ -30,7 +30,7 @@ const routes: Routes = [
 
   },
   {
-    path: 'charts',
+    path: 'home',
     component: ChartsComponent
   },
   {
