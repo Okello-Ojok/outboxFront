@@ -36,7 +36,6 @@ import { ChartsComponent } from './charts/charts.component';
 
 import { WeatherService } from './weather.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
