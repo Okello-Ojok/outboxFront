@@ -2,19 +2,21 @@
   <br>
   <mat-card>
 
-    
+    <mat-grid-list cols="2" rowHeight="50px">
+      <mat-grid-tile><button mat-raised-button color="primary" [routerLink]="[ '/create-event' ]" >Create Event</button></mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
 
-    <button mat-raised-button color="primary" [routerLink]="[ '/create-event' ]">Create An Event</button>
-    <br><br>
+  <br>
     <mat-divider></mat-divider>
     <br>
     <div class="example-loading-shade" *ngIf="isLoading">
         <mat-spinner *ngIf="isLoading"></mat-spinner>
       </div>
-
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
 
     <table id="myTable" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
       <ng-container matColumnDef="eventname" id="eventName">
