@@ -26,6 +26,8 @@
 
 }
   
+
+
 /* Structure */
 .example-container {
   position: relative;
@@ -44,7 +46,7 @@
   left: 0;
   bottom: 56px;
   right: 0;
-  background: rgba(0, 0, 0, 0.15);
+  background:#f5f5f5;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -61,6 +63,9 @@
 .mat-column-created {
   max-width: 124px;
 }
-
+.mat-row:hover {
+  background-color:#f5f5f5;
+}
   
+
   

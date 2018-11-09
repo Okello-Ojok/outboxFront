@@ -9,7 +9,7 @@
     <mat-card-content>
       <form (submit)="onAddAttendee(attendeeForm)" #attendeeForm="ngForm">
 
-        <div>
+        <div class="fiveEvents">
           <h4>Choose Event to register for.</h4>
           <mat-button-toggle-group name="ourEvents" [ngModel]="ourEvents?.upcoming" #upcoming="ngModel" required>
             <mat-button-toggle *ngFor="let upcoming of events" [value]="upcoming">{{upcoming.eventname}}</mat-button-toggle>

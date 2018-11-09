@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -22,6 +23,10 @@ export class EventDetailComponent implements OnInit {
   isLoading= false;
 
   displayedColumns = ['firstname', 'lastname', 'email', 'gender', 'occupation', 'phone',];
+  dataSource: MatTableDataSource<Attendee>;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
 
 
@@ -35,13 +40,24 @@ export class EventDetailComponent implements OnInit {
   }
 
   getDetails(id) {
-    this.isLoading = true;
+    // this.isLoading = true;
     this.eventsService.getAttendeesByEventId(id)
       .subscribe(data => {
-        this.isLoading = false;
-        console.log(data);
-        this.details = data;
+        // this.isLoading = false;
+        // console.log(data);
+        // this.details = data;
+        this.dataSource = new MatTableDataSource(data)
+        this.dataSource.sort = this.sort;
       });
+  }
+
+  // Filter table
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 
