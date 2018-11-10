@@ -12,6 +12,7 @@
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
+  background: #0087D9 !important;
 }
 
 .material-icons{

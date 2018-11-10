@@ -11,6 +11,22 @@
         </mat-icon>
         Home
       </a>
+      <a mat-list-item routerLink="/attend" routerLinkActive="active">
+        <mat-icon>
+          <i class="material-icons">
+              account_circle
+          </i>
+        </mat-icon>
+        Attend Event
+      </a>
+      <a mat-list-item routerLink="/events" routerLinkActive="active">
+        <mat-icon>
+          <i class="material-icons">
+            event
+          </i>
+        </mat-icon>
+        Events
+      </a>
       <a mat-list-item routerLink="/residents" routerLinkActive="active">
         <mat-icon>
           <i class="material-icons">
@@ -35,14 +51,7 @@
         </mat-icon>
         Housekeeping
       </a>
-      <a mat-list-item routerLink="/events" routerLinkActive="active">
-        <mat-icon>
-          <i class="material-icons">
-            event
-          </i>
-        </mat-icon>
-        Events
-      </a>
+      
       <a mat-list-item href="/assets">
         <mat-icon>
           <i class="material-icons">
@@ -80,8 +89,14 @@
         </mat-icon>
         Residency Inquiries
       </mat-card>
-      <mat-card>Expenses</mat-card>
-      <mat-card>Number of residents</mat-card>
+      <mat-card>
+          <mat-icon>
+              <i class="material-icons">
+                event
+              </i>
+            </mat-icon>
+        Events Created</mat-card>
+      <mat-card>Event Attendees</mat-card>
       <mat-card>New Clients</mat-card>
     </div>
     <router-outlet></router-outlet>
